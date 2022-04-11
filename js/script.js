@@ -1,43 +1,72 @@
 {
     const tasks = [
-       
+      
     ];
 
     const onFormSubmit = (event) => {
        
             event.preventDefault();
 
+            const newItemElement = document.querySelector(".js-newItem");
             const newItemContent = document.querySelector(".js-newItem").value.trim();
             
-            if (newItemContent === "") {
-                return;
+            if (newItemContent !== "") {
+
+                addNewItem(newItemContent);
+                newItemElement.value="";
             } 
-        addNewItem(newItemContent);
+
+        newItemElement.focus();
         
     }
+
+    const toggleTaskDone = (taskIndex) => {
+        tasks[taskIndex].done = !tasks[taskIndex].done;
+        render();
+    }
+    
+    const removeItem = (taskIndex) => {
+        tasks.splice(taskIndex, 1);
+        render();
+    }
+   
+    const bindEvents = () => {
+    const removeButtons = document.querySelectorAll(".js-remove");
+
+    removeButtons.forEach((removeButton, taskIndex) => {
+        removeButton.addEventListener("click", () => {
+           removeItem(taskIndex);
+        })
+    });
+    
+const toggleDoneButtons = document.querySelectorAll(".js-toggleDone");
+
+toggleDoneButtons.forEach((toggleDoneButton, taskIndex) => {
+    toggleDoneButton.addEventListener("click", () => {
+       toggleTaskDone(taskIndex);
+    })
+});
+    }
+
     const render = () => {
         let htmlString = ""; 
 
         for(const task of tasks) { 
             htmlString +=  ` 
-            <li 
-                ${task.done ? "style = \"text-decoration: line-through\"" : ""}>
-                ${task.content}
-                <button class="js-remove">Remove item</button>
+            <li class="items__list js-items">
+
+            <span class="items__content ${task.done ? "items__content--done" : ""}">${task.content}
+            </span>
+                <button class="form__buttonDone form__buttonDone--toggleDone js-toggleDone">${task.done ? "Got it!" : "Got it!"}</button>
+                <button class="form__buttonRemove js-remove">🗑</button> 
             </li> 
             `;
         }
 
         document.querySelector(".js-items").innerHTML=htmlString;
 
-        const removeButtons = document.querySelectorAll(".js-remove");
-
-        removeButtons.forEach((removeButton, index) => {
-            removeButton.addEventListener("click", () => {
-               removeItem(index);
-            })
-        });
-        
+        bindEvents();
+    
     }
 
     const addNewItem = (newItemContent) => {
@@ -46,11 +75,7 @@
         content: newItemContent
     })
     render(); 
-}
-const removeItem = (index) => {
-    tasks.splice(index, 1);
-    render();
-}
+    }
 
     const init = () => {
         render();
@@ -59,7 +84,7 @@ const removeItem = (index) => {
 
         form.addEventListener("submit", onFormSubmit)
    
-};
+    };
 
 init ();
 

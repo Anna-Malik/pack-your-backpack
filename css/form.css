@@ -34,3 +34,47 @@
 .form__button:active {
     background-color: hsl(28, 23%, 70%);
 }
+
+.form__buttonRemove {
+    background-color: rgb(145, 116, 91);
+    width: 20px;
+    height: 20px;
+    border: none;
+    padding: 5px;
+    border-radius: 25px;
+}
+
+.form__buttonDone {
+    background-color: rgb(145, 116, 91);
+    width: 70px;
+    height: 20px;
+    border: none;
+    padding: 5px;
+    border-radius: 25px;
+    
+} 
+.form__buttonRemove:hover {
+    background-color: hsl(28, 23%, 60%);
+    transition: 1s;
+    
+}
+
+.form__buttonDone:hover {
+    background-color: hsl(28, 23%, 60%);
+    transition: 1s;
+} 
+
+
+.items__content {
+    text-align: center;
+    font-weight: 200;
+}
+
+.items__content--done {
+text-decoration: line-through;
+}
+
+
+.items__list {
+    list-style: none;
+}
