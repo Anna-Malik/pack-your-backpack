@@ -2,6 +2,7 @@
     padding: 10px;
     display: grid;
     grid-template-columns: 1fr auto;
+
 }
 
 @media (max-width: 480px) {
@@ -27,7 +28,7 @@
 
 .form__button:hover {
     background-color: hsl(28, 23%, 60%);
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: 1s;
 }
 
@@ -67,7 +68,7 @@
 
 .items__content {
     text-align: center;
-    font-weight: 200;
+    
 }
 
 .items__content--done {
@@ -77,4 +78,7 @@ text-decoration: line-through;
 
 .items__list {
     list-style: none;
+    padding: 10px 10px;
+    border-bottom: 1.5px solid hsl(27, 11%, 85%);
+    
 }
