@@ -1,0 +1,19 @@
+.container {
+    background-color: hsla(22, 16%, 71%, 0.9);
+    max-width: 500px; 
+    display: flex;
+    padding-top: 100px;
+    justify-content: center;
+    margin: 100px auto;
+    align-items: center;
+    padding: 30px;
+    border-radius: 25px;
+    display: block;  
+}
+
+.container__header {
+    font-size: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid hsl(27, 11%, 85%);
+    
+}
