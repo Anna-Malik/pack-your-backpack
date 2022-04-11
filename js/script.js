@@ -57,8 +57,10 @@ toggleDoneButtons.forEach((toggleDoneButton, taskIndex) => {
 
             <span class="items__content ${task.done ? "items__content--done" : ""}">${task.content}
             </span>
+            <span class="form__buttons">
                 <button class="form__buttonDone form__buttonDone--toggleDone js-toggleDone">${task.done ? "Got it!" : "Got it!"}</button>
                 <button class="form__buttonRemove js-remove">🗑</button> 
+                </span>
             </li> 
             `;
         }
